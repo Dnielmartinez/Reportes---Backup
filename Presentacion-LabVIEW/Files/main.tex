@@ -1,0 +1,59 @@
+\documentclass[aspectratio=169,10pt]{beamer}
+%\documentclass[10pt]{beamer}
+
+%\documentclass[7pt]{beamer}
+%\usepackage[size=custom,width=16,height=9,scale=1]{beamerposter}
+\usetheme{Ruco}
+\usepackage[utf8]{inputenc}  
+\usepackage[T1]{fontenc}    
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amsfonts,amsbsy}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{animate}
+\usepackage{float}
+\usepackage{ifthen}
+\usepackage{tabularray}
+\usepackage{booktabs}
+\UseTblrLibrary{booktabs}
+\usepackage{tikz}
+\usetikzlibrary{positioning,calc,arrows, arrows.meta,tikzmark}
+\usepackage{multicol}
+\usepackage{multirow}
+
+\title{Sistema de Seguridad en Laboratorio:}
+\subtitle{Interfaz gráfica en LabVIEW con implementación de APIs como AWS y Google Cloud}
+\author{Daniel Alejandro Martínez Lara}
+\institute{IICO-UASLP}
+\date{1 de junio de 2026}
+\newcommand{\gifon}{1}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+\begin{frame}[t]{Contenido}{}
+     \begin{multicols}{2}
+     \tableofcontents
+     \end{multicols}
+     \end{frame}
+ 
+% \AtBeginSection[]{
+%     \begin{frame}<beamer>
+%         \frametitle{Contenido}
+%         \begin{columns}[T]
+%             \begin{column}{.5\textwidth}
+%                 \tableofcontents[currentsection,sections=1-2]
+%             \end{column}
+%             \begin{column}{.5\textwidth}
+%                 \tableofcontents[currentsection,sections=3-5]
+%             \end{column}
+%         \end{columns}
+%     \end{frame}
+% }
+
+\input{files/intro.tex}
+\input{files/dev.tex}
+\input{files/final.tex}
+\end{document}

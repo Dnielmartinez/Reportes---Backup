@@ -1,0 +1,144 @@
+\section{Desarollo del Programa}
+
+\subsection{Programas de Python (Reconocimiento de usuario)}
+
+\begin{frame}[t]{Programas de Python}{Reconocimiento de Usuario (Google Services)}
+    \begin{tikzpicture}[remember picture,overlay]
+        \node[anchor=center,scale=.9,text width=16cm,align=justify,xshift=0cm,yshift=2.8cm](tx1) at (current page.center){
+            Como primer programa implementado se realizo un programa en python con comuncación de una API desarrollada por Google Services, con la ayuda de la libreria \textbf{gspread} es que se logra esta comunicación. 
+        };
+
+        \node[anchor=center,scale=.32,xshift=9cm,yshift=-9cm] (im1) at (tx1.south west){\includegraphics{images/title-page/logincode1.png}};
+
+        \node[anchor=center,scale=.18,xshift=59cm,yshift=-16cm] (im2) at (tx1.south west){\includegraphics{images/title-page/coderepresent1.png}};
+        
+        
+    \end{tikzpicture}
+\end{frame}
+
+\subsection{Programas de Python (Reconocimiento de equipo)}
+
+\begin{frame}[t]{Programas de Python}{Reconocimiento de equipo de Laboratorio (AWS)}
+    \begin{tikzpicture}[remember picture,overlay]
+        \node[anchor=center,scale=.9,text width=16cm,align=justify,xshift=0cm,yshift=2.8cm](tx2) at (current page.center){
+            Como segundo programa implementado se realizo un programa en python con comuncación de una API desarrollada por Amazon Web Services (AWS), con la ayuda de la libreria \textbf{boto3} es que se logra esta comunicación. 
+        };
+
+        \node[anchor=center,scale=.32,xshift=8cm,yshift=-9cm] (im3) at (tx2.south west){\includegraphics{images/title-page/logincode2.png}};
+
+        \node[anchor=center,scale=.09,xshift=110cm,yshift=-30cm] (im4) at (tx2.south west){\includegraphics{images/title-page/coderepresent2.png}};
+
+    \end{tikzpicture}
+\end{frame}
+
+\subsection{Interfaz de LabVIEW (Conexión con Python)}
+
+\begin{frame}[t]{Interfaz de LabVIEW}{Conexión con Python}
+    \begin{tikzpicture}[remember picture,overlay]
+        \node[anchor=center,scale=.9,text width=16cm,xshift=0cm,yshift=3cm,align=justify] (tx3) at (current page.center){
+            Para conectar LabVIEW con Python se utilizo la siguiente funcion dentro de LabVIEW:
+            \\
+            \textbf{Python NODE:} Esta función se encarga de ejecutar el archivo de Python y obtener el dato de salida para poder trabajarlo dentro de LabVIEW.
+        };
+
+        \node[anchor=center,scale=.7,xshift=0cm,yshift=-5cm] (im5) at (tx3.south){\includegraphics{images/title-page/lb-con1.png}};
+        
+    \end{tikzpicture}
+    
+\end{frame}
+
+\subsection{Programa en LabVIEW pt.1}
+
+\begin{frame}[t]{Interfaz en LabVIEW}{Diagrama de flujo pt.1}
+    \begin{tikzpicture}[remember picture,overlay]
+        \node[anchor=center,scale=.9,text width=16cm,xshift=0cm,yshift=3.5cm,align=justify] (tx4) at (current page.center){
+            La implementación del programa dentro del entorno de LabVIEW fue de la suguiente forma.
+        };
+
+        \node[anchor=center,scale=.65,xshift=0cm,yshift=-5.5cm] (im6) at (tx4.south){\includegraphics{images/title-page/lb-con2.png}};
+    \end{tikzpicture}
+\end{frame}
+
+\subsection{Programa en LabVIEW pt.2}
+
+\begin{frame}[t]{Interfaz en LabVIEW}{Diagrama de flujo pt.2}
+    \begin{tikzpicture}[remember picture,overlay]
+        
+        \node[anchor=center,scale=.45,xshift=-9.5cm,yshift=-1cm] (im8) at (current page.east){\includegraphics{images/title-page/lb-con4.png}};
+        
+        \node[anchor=center,scale=.9,text width=8cm,xshift=2cm,yshift=0cm,align=justify] (tx5) at (im8.north){
+            Dentro del subVI que escanea el QR\dots
+        };
+
+        \node[anchor=center,scale=.5,xshift=8cm,yshift=0.5cm](im7) at (current page.west){\includegraphics{images/title-page/lb-con3.png}};
+
+        \node[anchor=center,scale=.9,text width=8cm,xshift=2cm,yshift=0cm,align=justify] (tx6) at (im7.north){
+            Primer análisis que nos recibe\dots
+        };
+
+    \end{tikzpicture}
+\end{frame}
+
+\subsection{Programa en LabVIEW pt.3}
+
+\begin{frame}[t]{Interfaz en LabVIEW}{Diagrama de flujo pt.3}
+    \begin{tikzpicture}[remember picture,overlay]
+
+        \node[anchor=center,scale=.35,xshift=-12cm,yshift=0cm] (im9) at (current page.east){\includegraphics{images/title-page/lb-con6.png}};
+        
+        \node[anchor=center,scale=.9,text width=8cm,xshift=2cm,yshift=0cm,align=justify] (tx7) at (im9.north){
+            Si la persona pasa el 1er filtro\dots    
+        
+        };
+
+        \node[anchor=center,scale=.35,xshift=11cm,yshift=0.5cm](im10) at (current page.west){\includegraphics{images/title-page/lb-con5.png}};
+
+        \node[anchor=center,scale=.9,text width=8cm,xshift=2cm,yshift=0cm,align=justify] (tx8) at (im10.north){
+            Despues de escanear el QR\dots
+        };
+    \end{tikzpicture}
+\end{frame}
+
+\subsection{Programa en LabVIEW pt.4}
+
+\begin{frame}[t]{Interfaz en LabVIEW}{Diagrama de flujo pt.4}
+    \begin{tikzpicture}[remember picture,overlay]
+
+        \node[anchor=center,scale=.9,text width=8cm,xshift=0cm,yshift=3cm,align=center] (tx10) at (current page.center){
+            Si la persona pasa el 1er filtro\dots
+        };
+
+        \node[anchor=center,scale=.4,xshift=0cm,yshift=-8.5cm](im11) at (tx10.south){\includegraphics{images/title-page/lb-con7.png}};
+    \end{tikzpicture}
+\end{frame}
+
+\subsection{Funciones adicionales}
+
+\begin{frame}[t]{LabVIEW}{Funciones Extra [Gestión de usuarios]}
+    \begin{tikzpicture}[remember picture,overlay]
+        \node[anchor=center,scale=.9,text width=8cm,xshift=4cm,yshift=3cm,align=center] (tx11) at (current page.west){
+            Función para agregar usuario\dots
+        };
+
+        \node[anchor=center,scale=.4,xshift=0cm,yshift=-7cm] (im12) at (tx11.south){\includegraphics{images/title-page/lb-con8.png}};
+
+        \node[anchor=center,scale=.9,text width=8cm,xshift=-6cm,yshift=3cm,align=center] (tx12) at (current page.east){
+            Función para eliminar usuario\dots
+        };
+
+        \node[anchor=center,scale=.4,xshift=0cm,yshift=-7cm] (im13) at (tx12.south){\includegraphics{images/title-page/lb-con9.png}};
+    \end{tikzpicture}
+\end{frame}
+
+\subsection{Panel Frontal}
+
+\begin{frame}[t]{Panel Frontal}{Interacción del Usuario}
+    \begin{tikzpicture}
+        \node[anchor=center,scale=.9,text width=16cm,xshift=0cm,yshift=3cm,align=center] (tx13) at (current page.center){
+            Como resultado, nuestro panel frontal es el siguiente:
+        };
+
+        \node[anchor=center,scale=.32,xshift=0cm,yshift=-10cm,align=center] (im14) at (tx13.south){\includegraphics{images/title-page/lb-con10.png}};
+    \end{tikzpicture}
+\end{frame}
+

@@ -1,0 +1,162 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamerthemeRuco}[2024/11/25 RUCO's title-page theme]
+
+
+% Load required packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{tikz}
+\usetikzlibrary{positioning,calc,arrows, arrows.meta,tikzmark}
+
+\def\familydefault{\rmdefault}
+
+\DeclareOptionBeamer{twologos}{\def\title-page@twologos{true}}
+\DeclareOptionBeamer{shownavsym}{\def\title-page@shownavsym{true}}
+\ProcessOptionsBeamer
+
+\mode<presentation>
+{
+\setbeamertemplate{section in toc}{\inserttocsectionnumber.~\inserttocsection}
+\setbeamertemplate{subsection in toc}[subsections numbered]
+%-----------------------------------------fonts
+\usefonttheme{serif}
+\setbeamerfont{structure}{family=\rmfamily} % Asegurar que los títulos usen fuente serif (estándar)
+\setbeamerfont{frametitle}{family=\rmfamily}
+\setbeamerfont{footline}{family=\rmfamily}
+\setbeamerfont{headline}{family=\rmfamily}
+\setbeamerfont{title}{family=\rmfamily}
+\setbeamerfont{author}{family=\rmfamily}
+\setbeamerfont{date}{family=\rmfamily}
+
+
+%---------------------------------------colors 
+\definecolor{title-page@headercolor}{RGB}{0,0,0}% green
+\definecolor{title-page@tcolor}{RGB}{0,14,140}% dark blue
+\definecolor{title-page@normaltextcolor}{RGB}{0,0,0}% gray blue
+\definecolor{coolblack}{rgb}{0.0, 0.18, 0.39}
+
+\setbeamercolor{structure}{fg=title-page@headercolor}
+\setbeamercolor{txt}{fg=title-page@tcolor}
+\setbeamercolor{normal text}{fg=title-page@normaltextcolor}
+\setbeamercolor{titlecolor}{fg=title-page@tcolor}
+
+%--------------------------------------------------
+\setbeamersize{text margin left=3mm,text margin right=3mm}
+
+\newif\iftitlepage
+\titlepagetrue 
+% Configura el template de fondo
+\setbeamertemplate{background}{%
+    \iftitlepage
+       %
+    \else
+        % Fondo para otras diapositivas
+        \Rucobackground
+    \fi
+}
+
+
+
+\defbeamertemplate*{title page}{Ruco theme}[1][]
+{%
+\begin{tikzpicture}[remember picture, overlay]
+% Logos en esquinas
+\node[anchor=north east] at (current page.north east)
+{\includegraphics[width=3.5cm]{images/title-page/LOGO_IICO_AZUL.png}};
+\node[anchor=north west] at (current page.north west)
+{\includegraphics[width=3.5cm]{images/title-page/LOGO_UASLP_AZUL.png}};
+
+\node[text width=\textwidth,minimum height=3cm,draw=blue,rounded corners=10mm] at (current page.center) (box) {};
+\node[anchor=center,blue,scale=1.8,text width=\linewidth,align=center,yshift=3mm](title) at ($(box)+(0,0)$) {\inserttitle};
+\node[anchor=north,blue,scale=1.4, text width=12cm,align=center](subtitle) at (title.south){\insertsubtitle};
+\node[anchor=north,blue,yshift=-5mm](author) at (box.south){\insertauthor};
+\node[anchor=north,blue](institute) at (author.south){\insertinstitute};
+\node[anchor=north,blue](date) at (institute.south){\insertdate};
+\node[anchor=center,opacity=0.35] at (current page.center){\includegraphics[width=\paperwidth=height=\paperheight]{images/title-page/recog-background.jpeg}};
+\end{tikzpicture}
+}
+\setbeamertemplate{bibliography item}[text]
+
+\defbeamertemplate*{frametitle}{Ruco theme}
+{%
+\Rucoonelogo
+  \ifx\insertframetitle\@empty
+       \Rucoonelogo
+       \Rucobackground
+  \else
+    \ifx\insertframesubtitle\@empty
+    \begin{tikzpicture}[remember picture, overlay]
+    \node[anchor=north west,scale=0.85,inner sep=1mm,color=blue,yshift=-3mm](title) at (current page.north west){\insertframetitle};
+    \end{tikzpicture}
+    \else
+    \begin{tikzpicture}[remember picture, overlay]
+    \node[anchor=north west,scale=0.85,inner sep=0mm,color=blue,xshift=1mm,yshift=-2mm](title) at (current page.north west){\insertframetitle};
+    \node[anchor=north west,scale=0.67,inner sep=0mm,color=blue,xshift=1mm,yshift=-2mm](subtitle) at (title.south west){\insertframesubtitle};
+    \end{tikzpicture}
+    \Rucobackground
+    \fi
+  \fi
+\vspace{10pt}
+}
+
+\newcommand{\Rucobackground}[0]
+{
+\leavevmode%
+\usebeamerfont{serif}%
+\begin{tikzpicture}[remember picture, overlay]
+\node[anchor=south, yshift=0pt] (c1) at (current page.south) {};
+\filldraw[draw,fill=black](c1) circle (5pt) node[anchor=center, white, scale=0.45, baseline,font=\bfseries] {\insertframenumber};
+\filldraw[draw,fill=coolblack] (current page.south west) -- ++(\paperwidth/2,0) arc [start angle=270, end angle=150, radius=5pt] --++(-\paperwidth/2, 0) -- cycle;
+\filldraw[draw,fill=coolblack] (current page.south east) -- ++(-\paperwidth/2,0) arc [start angle=270, end angle=390, radius=5pt] --++(\paperwidth/2, 0) -- cycle;
+\node[anchor=south west, scale=0.35, white,inner sep=1pt] at (current page.south west) {\inserttitle~\insertsubtitle};
+\node[anchor=south east, scale=0.35, white,inner sep=1pt] at (current page.south east) {\insertframesubtitle};
+\end{tikzpicture}%
+\
+}
+\newcommand{\Rucoonelogo}[0]
+{
+\begin{tikzpicture}[remember picture, overlay]
+\node[anchor=north east,inner sep=0mm](logoup) at (current page.north east) {\includegraphics[width=1.5cm]{images/title-page/LOGO_IICO_AZUL.png}};
+\draw[coolblack](logoup.south west)--++(-\paperwidth,0);
+\draw[coolblack]([yshift=-0.5mm]logoup.south west)--++(-\paperwidth,0);
+\end{tikzpicture}
+}
+\newcommand{\Rucotwologo}[0]
+{
+\begin{tikzpicture}[remember picture, overlay]
+\node[anchor=north east,inner sep=0mm](logoup) at (current page.north east) {\includegraphics[width=1.5cm]{images/title-page/LOGO_IICO_AZUL.png}};
+\draw[coolblack](logoup.south west)--++(-\paperwidth,0);
+\draw[coolblack]([yshift=-0.5mm]logoup.south west)--++(-\paperwidth,0);
+\node[anchor=south east,inner sep=0mm,yshift=2.5mm](logodn) at (current page.south east) {\includegraphics[width=1.5cm]{images/title-page/LOGO_UASLP_AZUL.png}};
+\end{tikzpicture}
+}
+
+\newcommand{\Rucobackalert}[0]
+{
+    \begin{tikzpicture}[remember picture, overlay]
+      \node[anchor=north east,inner sep=0mm](logoup) at (current page.north east) {\includegraphics[width=1.5cm]{images/title-page/LOGO_IICO_AZUL.png}};
+      \draw[orange](logoup.south west)--++(-\paperwidth,0);
+      \draw[orange]([yshift=-0.5mm]logoup.south west)--++(-\paperwidth,0);
+      \node[anchor=north west,scale=0.85,inner sep=1mm,orange,yshift=0mm](title) at (current page.north west){\insertframetitle};
+      \node[anchor=north west,scale=0.67,inner sep=1mm,orange,xshift=1mm](subtitle) at (title.south west){\insertframesubtitle};
+      \filldraw[draw,fill=orange] (current page.south west) -- ++(\paperwidth/2,0) arc [start angle=270, end angle=150, radius=5pt] --++(-\paperwidth/2, 0) -- cycle;
+      \filldraw[draw,fill=orange] (current page.south east) -- ++(-\paperwidth/2,0) arc [start angle=270, end angle=390, radius=5pt] --++(\paperwidth/2, 0) -- cycle;
+      \node[anchor=south west, scale=0.35, blue,inner sep=1pt] at (current page.south west) {\inserttitle};
+      \node[anchor=south east, scale=0.35, blue,inner sep=1pt] at (current page.south east) {\insertframesubtitle};
+    \end{tikzpicture}%
+}
+
+
+
+
+\ifx\title-page@shownavsym\undefined% insert navigation symbols
+\setbeamertemplate{navigation symbols}{}
+\else
+\setbeamertemplate{navigation symbols}{}
+\fi
+% \defbeamertemplate*{background}{\Rucobackground}{}
+
+}
+\mode<all>
+
+
+

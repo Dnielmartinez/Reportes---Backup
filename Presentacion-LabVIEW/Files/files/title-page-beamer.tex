@@ -1,0 +1,69 @@
+\begin{titlepage}
+\begin{tikzpicture}[remember picture,overlay]
+\coordinate (A) at (0,0);
+
+\node[at=(current page.center),
+      opacity=0.1,
+      fill=white,
+      inner sep=0pt,
+     ]  {\includegraphics[width=\paperwidth,height=\paperheight]{./images/Beamer/honey.jpg}};
+     
+     
+     
+
+\node[anchor=north east,
+scale=0.07,
+inner sep=0pt,
+opacity=1,
+](iicologo) 
+at (current page.north east) {\includegraphics{./images/Beamer/LOGO_IICO_AZUL.png}};
+
+\node[anchor=north west,
+scale=0.15,
+inner sep=0pt,
+opacity=1,
+](iicologo) 
+at (current page.north west) {\includegraphics{./images/Beamer/LOGO_UASLP_AZUL.png}};      
+     
+     
+\node[font=\fontencoding{T1}\fontfamily{cmfib}\fontsize{7}{14}\selectfont, 
+      text width=30cm,
+      anchor=north,
+	  inner sep=0pt,
+	  yshift=-0.2cm,
+      blue,
+      align=center] (uni) at (current page.north) { 
+   UNIVERSIDAD AUTONOMA DE SAN LUIS POTOSI\\
+   FACULTAD DE CIENCIAS       
+       };     
+     
+\node[font=\fontencoding{T1}\fontfamily{cmfib}\fontsize{17}{17}\selectfont, 
+      text width=16cm,
+      anchor=center,
+      inner sep=0pt,
+      yshift=0cm,
+      color=blue!20!black!80,
+      align=center] (title) at (current page.center) { 
+      	     SEMINARIO DE GRUPO\\ 
+      	     \today
+           };
+       
+       
+\node[below = of title,
+font=\fontencoding{T1}\fontfamily{cmfib}\fontsize{7}{10}\selectfont, 
+text width=10cm,
+inner sep=0pt,
+yshift=0,
+align=center] (profesor) { Oscar Ruiz Cigarrillo
+                    };
+                        
+%\node[below = of profesor,
+%font=\fontencoding{T1}\fontfamily{cmfib}\fontsize{5}{14}\selectfont, 
+%text width=30cm,
+%inner sep=0pt,
+%yshift=0.5cm,
+%align=center] (date) { ZACATECAS, MÉXICO, \today};                     
+                             
+\end{tikzpicture}
+
+\end{titlepage}
